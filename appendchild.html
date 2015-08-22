@@ -1,0 +1,18 @@
+<html>
+<body>
+<script language="javascript">
+   function funAppendChild(){
+     var txt = 'Welcome to mm214.com';
+     var newtext = document.createTextNode(txt);
+     document.body.appendChild(newtext);
+   } 
+</script>
+<body id="body">
+
+ <button
+   onclick="funAppendChild();
+   this.disabled=true;"> Append Text(child)
+ </button>
+  <br>
+ </body>
+</html>

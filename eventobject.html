@@ -1,0 +1,66 @@
+<!-- Javascript: event object attributes -->
+
+<html>
+<head>
+<title>Event object attributes</title>
+<script type="text/javascript">
+function displayEvent(event) {
+  console.log(event);
+   var txt = "";
+   txt += "Event Name: " + event.type+"<br>";
+   txt += "clientX,clientY: "+ event.clientX +
+                   "," + event.clientY + "<br>";
+   if (event.srcElement) {
+      // this means we are running on IE		   
+      targ = event.srcElement;
+   } else {
+      targ = event.currentTarget;
+   }
+
+   txt += "ID: " + targ.id+"<br>";
+   txt += "tag: " + targ.tagName + "<br>";
+   txt += "innerHTML: " + targ.innerHTML+"<br>";
+
+   r = document.getElementById("result");
+   r.innerHTML = txt;   
+}
+
+
+
+</script>
+</head>
+
+<body>
+
+<p>Move the mouse over the level 2 header, or click on the paragraph or button
+to generate events.</p>
+
+<!-- this tag triggers an event when the mouse moves over it -->
+<h2 id=one onmouseover="displayEvent(event)">I AM A LEVEL 2 HEADER</h2>
+
+<!-- this tag triggers an event when clicked on -->
+<p id=two onclick="displayEvent(event)">
+This is a paragraph. This is a paragraph. This is a paragraph.
+This is a paragraph. This is a paragraph. This is a paragraph.
+This is a paragraph. This is a paragraph. This is a paragraph.
+This is a paragraph. This is a paragraph. This is a paragraph.
+This is a paragraph. This is a paragraph. This is a paragraph.
+</p>
+
+<!-- this tag triggers an event when clicked on -->
+<input type=button value="I'm a button!"
+       onclick="displayEvent(event)">
+<hr>
+
+<!-- this tag initially has no content
+     it will be changed when an event happens
+ -->
+<p id=result></p>
+
+</body>
+</html>
+
+
+
+
+
